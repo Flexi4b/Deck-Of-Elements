@@ -32,6 +32,26 @@ public class MousePosition : MonoBehaviour
                 BackToOriginalPos();
             }
 
+            if (_results[0].gameObject.name == "HeatHeal")
+            {
+                BackToOriginalPos();
+            }
+
+            if (_results[0].gameObject.name == "FlameOn")
+            {
+                BackToOriginalPos();
+            }
+
+            if (_results[0].gameObject.name == "FireWall")
+            {
+                BackToOriginalPos();
+            }
+
+            if (_results[0].gameObject.name == "Stygian")
+            {
+                BackToOriginalPos();
+            }
+
             if (_results[0].gameObject.name == "DirtChuk")
             {
                 BackToOriginalPos();
