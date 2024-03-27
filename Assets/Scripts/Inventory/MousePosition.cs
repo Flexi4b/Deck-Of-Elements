@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class MousePosition : MonoBehaviour
 {
+    [SerializeField] private SaveTheDeck _saveTheDeck;
+
     [SerializeField] private GraphicRaycaster _graphicRaycaster;
     [SerializeField] private EventSystem _eventSystem;
     [SerializeField] private RectTransform _canvasRect;
@@ -27,42 +29,22 @@ public class MousePosition : MonoBehaviour
 
         if (_results.Count > 0 && Input.GetMouseButtonDown(1))
         {
-            if (_results[0].gameObject.name == "BurnToss")
-            {
-                BackToOriginalPos();
-            }
-
-            if (_results[0].gameObject.name == "HeatHeal")
-            {
-                BackToOriginalPos();
-            }
-
-            if (_results[0].gameObject.name == "FlameOn")
-            {
-                BackToOriginalPos();
-            }
-
-            if (_results[0].gameObject.name == "FireWall")
-            {
-                BackToOriginalPos();
-            }
-
-            if (_results[0].gameObject.name == "Stygian")
-            {
-                BackToOriginalPos();
-            }
-
-            if (_results[0].gameObject.name == "DirtChuk")
-            {
-                BackToOriginalPos();
-            }
-
-            if (_results[0].gameObject.name == "VoltFling")
-            {
-                BackToOriginalPos();
-            }
-
-            if (_results[0].gameObject.name == "ChillShard")
+            if (_results[0].gameObject.name == "BurnToss" ||
+                _results[0].gameObject.name == "HeatHeal" ||
+                _results[0].gameObject.name == "FlameOn" ||
+                _results[0].gameObject.name == "FireWall" ||
+                _results[0].gameObject.name == "Stygian" ||
+                _results[0].gameObject.name == "DirtChuk" ||
+                _results[0].gameObject.name == "VoltFling" ||
+                _results[0].gameObject.name == "ChillShard" ||
+                _results[0].gameObject.name == "BurnToss(Clone)" ||
+                _results[0].gameObject.name == "HeatHeal(Clone)" ||
+                _results[0].gameObject.name == "FlameOn(Clone)" ||
+                _results[0].gameObject.name == "FireWall(Clone)" ||
+                _results[0].gameObject.name == "Stygian(Clone)" ||
+                _results[0].gameObject.name == "DirtChuk(Clone)" ||
+                _results[0].gameObject.name == "VoltFling(Clone)" ||
+                _results[0].gameObject.name == "ChillShard(Clone)")
             {
                 BackToOriginalPos();
             }

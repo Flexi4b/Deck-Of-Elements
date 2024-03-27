@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2009717286289981436}
   - component: {fileID: 2344206126072073223}
   m_Layer: 0
-  m_Name: ChillShard
+  m_Name: BurnToss_Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ea8f6960be65f48429976a32bd080b78, type: 2}
+  - {fileID: 2100000, guid: 2b5048be98c133c4da5b2a2a37ae6d9d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,5 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650b3d36c61d04a49a67455fe4498d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardType: 3
+  CardType: 2
   CardAbility: 0
