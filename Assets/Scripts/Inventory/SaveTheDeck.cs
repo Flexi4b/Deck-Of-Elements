@@ -11,38 +11,32 @@ public class SaveTheDeck : MonoBehaviour
 
     public Cards CardDatabase;
 
-    private void Awake()
-    {
-        LoadDeckList();
-    }
-
     void Update()
     {
-        //Save deck prompt?
-
         foreach (GameObject slot in DeckSlots)
         {
             DeckSlots deckSlots = slot.GetComponent<DeckSlots>();
+            //Doesnt load second card
             if (deckSlots.CardSelected == true)
             {
                 Transform child = slot.transform.GetChild(0);
 
                 if (!CardsInDeck.Contains(child.gameObject))
                     CardsInDeck.Add(child.gameObject);
-
+                
                 SaveDeckList();
                 deckSlots.CardSelected = false;
             }
-            else
-            {
-                return;
-            }
+            //else
+            //{
+            //    return;
+            //}
         }
 
-        //if (Input.GetKeyDown(KeyCode.T))
-        //{
-        //    LoadDeckList();
-        //}
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            LoadDeckList();
+        }
     }
 
     public void SaveDeckList()
@@ -73,7 +67,6 @@ public class SaveTheDeck : MonoBehaviour
             int _cardIndex = int.Parse(_cards[i]);
             GameObject _card = CardDatabase.CardList[_cardIndex];
             Debug.Log(_card.name);
-            // TODO: spawn deze kaart in je deck canvas
 
             Instantiate(_card, DeckSlots[i-1].transform);
         }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class DragCards : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -11,25 +12,35 @@ public class DragCards : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin Drag");
-        OriginalPosition = transform.parent;
-        ParentAfterDrag = transform.parent;
-        transform.SetParent(transform.root);
-        transform.SetAsLastSibling();
-        Draged = true;
-        _image.raycastTarget = false;
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Debug.Log("Begin Drag");
+            OriginalPosition = transform.parent;
+            ParentAfterDrag = transform.parent;
+            transform.SetParent(transform.root);
+            transform.SetAsLastSibling();
+            Draged = true;
+            _image.raycastTarget = false;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Dragging");
-        transform.position = Input.mousePosition;
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Debug.Log("Dragging");
+            transform.position = Input.mousePosition;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("End Drag");
-        transform.SetParent(ParentAfterDrag);
-        _image.raycastTarget = true;
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Debug.Log("End Drag");
+            transform.SetParent(ParentAfterDrag);
+            Draged = false;
+            _image.raycastTarget = true;
+        }
     }
 }
