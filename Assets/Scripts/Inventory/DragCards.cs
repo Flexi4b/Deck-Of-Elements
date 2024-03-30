@@ -7,6 +7,7 @@ public class DragCards : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public Image _image;
     [HideInInspector] public Transform ParentAfterDrag;
     [HideInInspector] public Transform OriginalPosition;
+    [HideInInspector] public bool Draged = false;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -15,6 +16,7 @@ public class DragCards : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         ParentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
+        Draged = true;
         _image.raycastTarget = false;
     }
 
