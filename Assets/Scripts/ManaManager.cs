@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class ManaManager : MonoBehaviour
 {
-    private int _totalMana = 5;
-    private int _currentMana;
+    public int CurrentMana;
 
-    void Start()
+    private int _maxMana = 5;
+
+    private void Awake()
     {
-        
+        CurrentMana = _maxMana;
     }
 
     void Update()
