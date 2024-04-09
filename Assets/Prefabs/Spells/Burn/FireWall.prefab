@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 1211754055935093455}
   - component: {fileID: 7881427446368864811}
   - component: {fileID: 2846943563651618363}
+  - component: {fileID: 7068636804275328656}
   m_Layer: 0
   m_Name: FireWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,3 +151,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardType: 0
   CardAbility: 2
+--- !u!114 &7068636804275328656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98192976743940564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833d615713e00614bb748b2ba6d3fed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallOn: 0

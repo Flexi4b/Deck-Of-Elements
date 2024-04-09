@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1165144702199277837}
   m_Layer: 0
   m_Name: DirtChuk
-  m_TagString: Untagged
+  m_TagString: Weak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

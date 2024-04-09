@@ -24,8 +24,10 @@ public class SpellBehavior : MonoBehaviour
     public Typing CardType;
     public Ability CardAbility;
 
+    private Health _health;
+
     private float _speed = 5;
-    private float _existanceTime = 2.5f;
+    private float _existanceTime = 1.7f;
 
     private bool _equalTypes = false;
     private bool _firstTypeWins = false;
@@ -217,67 +219,156 @@ public class SpellBehavior : MonoBehaviour
     {
         Typing type = collision.gameObject.GetComponent<SpellBehavior>().CardType;
         Ability ability = collision.gameObject.GetComponent<SpellBehavior>().CardAbility;
-        
+
         GetType(this.CardType, type);
         GetAbility(this.CardAbility, ability);
 
         if (_equalTypes == true && _bothLose == true)
         {
+            //BurnToss - BurnToss
+            //HeatHeal - FlameOn
+            //FireWall - Stygian
+            //Stygian - Stygian
+            Debug.Log(0);
             Destroy(gameObject);
         }
 
         if (_equalTypes == true && _firstSkillWins == true)
         {
-            Debug.Log("Damage Opponent");
+            //FireWall - BurnToss
+            //Stigian - BurnToss
+            Debug.Log(1);
+            if (this.CardAbility == Ability.Wall)
+            {
+                WallSpell wall = this.gameObject.GetComponent<WallSpell>();
+                wall.WallOn = true;
+            }
+            //Destroy(gameObject);
+            //Damage opponent
         }
 
         if (_equalTypes == true && _secondSkillWins == true)
         {
+            //BurnToss - FireWall
+            //BurnToss - Stygian
+            Debug.Log(2);
             Destroy(gameObject);
         }
 
         if (_equalTypes == true && _bothWin == true)
         {
+            //BurnToss - FlameOn
+            //BurnToss - HeatHeal
+            //HeatHeal - FireWall
+            //HeatHeal - HeatHeal
+            //HeatHeal - Stygian
+            //FlameOn - FlameOn
+            //FlameOn - FireWall
+            //FlameOn - Stygian
+            //FireWall - FireWall
+            Debug.Log(3);
             Debug.Log("Spells do their action");
         }
 
         if (_firstTypeWins == true && _bothLose == true)
         {
-            Debug.Log("Damage Opponent");
+            //BurnToss - DirtChuk
+            //HeatHeal - Ensnare
+            //FlameOn - LifeSeed
+            //FireWall - GaiaBash
+            //Stygian - Mudslide
+            //Stygian - GaiaBash
+            Debug.Log(4);
+            //Damage opponent
         }
 
         if (_firstTypeWins == true && _firstSkillWins == true)
         {
-            Debug.Log("Damage Opponent");
+            //FireWall - DirtChuk
+            //Stygian - DirtChuk
+            Debug.Log(5);
+            if (this.CardAbility == Ability.Wall)
+            {
+                WallSpell wall = this.gameObject.GetComponent<WallSpell>();
+                wall.WallOn = true;
+            }
+            //Damage opponent
         }
 
         if (_firstTypeWins == true && _secondSkillWins == true)
         {
+            //BurnToss - Mudslide
+            //BurnToss - GaiaBash
+            Debug.Log(6);
             Destroy(gameObject);
         }
 
         if (_firstTypeWins == true && _bothWin == true)
         {
+            //BurnToss - LifeSeed
+            //BurnToss - Ensnare
+            //HeatHeal - DirtChuk
+            //HeatHeal - LifeSeed
+            //HeatHeal - Mudslide
+            //FlameOn - DirtChuk
+            //FlameOn - Ensnare
+            //FlameOn - Mudslide
+            //FlameOn - GaiaBash
+            //FireWall - LifeSeed
+            //FireWall - Ensnare
+            //FireWall - Mudslide
+            //Stygian - LifeSeed
+            //Stygian - Ensnare
+            Debug.Log(7);
             Debug.Log("Spells do their action");
         }
 
         if (_secondTypeWins == true && _bothLose == true)
         {
+            //DirtChuk - BurnToss
+            //Ensnare - HeatHeal
+            //LifeSeed - FlameOn
+            //GaiaBash - FireWall
+            //Mudslide - Stygian
+            //GaiaBash - Stygian
+            Debug.Log(8);
             Destroy(gameObject);
         }
 
         if (_secondTypeWins == true && _firstSkillWins == true)
         {
+            //Mudslide - BurnToss
+            //GaiaBash - BurnToss
+            Debug.Log(9);
             Destroy(gameObject);
         }
 
         if (_secondTypeWins == true && _secondSkillWins == true)
         {
+            //DirtChuk - FireWall
+            //DirtChuk - Stygian
+            Debug.Log(10);
             Destroy(gameObject);
         }
 
         if (_secondTypeWins == true && _bothWin == true)
         {
+            //LifeSeed - BurnToss
+            //Ensnare - BurnToss
+            //DirtChuk - HeatHeal
+            //LifeSeed - HeatHeal
+            //Mudslide - HeatHeal
+            //GaiaBash - HeatHeal
+            //DirtChuk - FlameOn
+            //Ensnare - FlameOn
+            //Mudslide - FlameOn
+            //Gaiabash - FlameOn
+            //LifeSeed - FireWall
+            //Ensnare - FireWall
+            //Mudslide - FireWall
+            //LifeSeed - Stygian
+            //Ensnare - Stygian
+            Debug.Log(11);
             Debug.Log("Spells do their action");
         }
     }

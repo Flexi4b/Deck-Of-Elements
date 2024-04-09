@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4680406300241128426}
   m_Layer: 0
   m_Name: FlameOn
-  m_TagString: Untagged
+  m_TagString: Status
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

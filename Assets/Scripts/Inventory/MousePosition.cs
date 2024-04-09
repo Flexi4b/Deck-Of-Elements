@@ -10,6 +10,8 @@ public class MousePosition : MonoBehaviour
     [SerializeField] private SaveTheDeck _saveTheDeck;
     [SerializeField] private ManaManager _manaManager;
     [SerializeField] private AmountOfCards _amountOfCards;
+    [SerializeField] private TurnManager _turnManager;
+    [SerializeField] private AICastSpells _aiCastSpells;
 
     [SerializeField] private GraphicRaycaster _graphicRaycaster;
     [SerializeField] private EventSystem _eventSystem;
@@ -83,7 +85,7 @@ public class MousePosition : MonoBehaviour
                 _results[0].gameObject.name == "Galvaniz(Clone)" ||
                 _results[0].gameObject.name == "ChillShard(Clone)" ||
                 _results[0].gameObject.name == "Refresh(Clone)" ||
-                _results[0].gameObject.name == "Frozon(Clone)e" ||
+                _results[0].gameObject.name == "Frozone(Clone)" ||
                 _results[0].gameObject.name == "Tsunami(Clone)" ||
                 _results[0].gameObject.name == "Glaciate(Clone)")
                 {
@@ -94,164 +96,203 @@ public class MousePosition : MonoBehaviour
 
         if (_results.Count > 0 && Input.GetMouseButtonDown(0) && SceneManager.GetActiveScene().buildIndex == 1)
         {
-            if (_results[0].gameObject.name == "BurnToss(Clone)" && _manaManager.CurrentMana >= 1)
+            if (_results[0].gameObject.name == "BurnToss(Clone)" && _manaManager.CurrentMana >= 1 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana--;
                 CardStackNumbers();
                 UseBurnToss = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "HeatHeal(Clone)" && _manaManager.CurrentMana >= 2)
+            if (_results[0].gameObject.name == "HeatHeal(Clone)" && _manaManager.CurrentMana >= 2 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 2;
                 CardStackNumbers();
                 UseHeatHeal = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "FlameOn(Clone)" && _manaManager.CurrentMana >= 3)
+            if (_results[0].gameObject.name == "FlameOn(Clone)" && _manaManager.CurrentMana >= 3 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 3;
                 CardStackNumbers();
                 UseFlameOn = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "FireWall(Clone)" && _manaManager.CurrentMana >= 3)
+            if (_results[0].gameObject.name == "FireWall(Clone)" && _manaManager.CurrentMana >= 3 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 3;
                 CardStackNumbers();
                 UseFireWall = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "Stygian(Clone)" && _manaManager.CurrentMana >= 4)
+            if (_results[0].gameObject.name == "Stygian(Clone)" && _manaManager.CurrentMana >= 4 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 4;
                 CardStackNumbers();
                 UseStygian = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "DirtChuck(Clone)" && _manaManager.CurrentMana >= 1)
+            if (_results[0].gameObject.name == "DirtChuck(Clone)" && _manaManager.CurrentMana >= 1 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana--;
                 CardStackNumbers();
                 UseDirtChuk = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "LifeSeed(Clone)" && _manaManager.CurrentMana >= 2)
+            if (_results[0].gameObject.name == "LifeSeed(Clone)" && _manaManager.CurrentMana >= 2 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 2;
                 CardStackNumbers();
                 UseLifeSeed = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "Ensnare(Clone)" && _manaManager.CurrentMana >= 3)
+            if (_results[0].gameObject.name == "Ensnare(Clone)" && _manaManager.CurrentMana >= 3 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 3;
                 CardStackNumbers();
                 UseEnsnare = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "Mudslide(Clone)" && _manaManager.CurrentMana >= 3)
+            if (_results[0].gameObject.name == "Mudslide(Clone)" && _manaManager.CurrentMana >= 3 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 3;
                 CardStackNumbers();
                 UseMudslide = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "GaiaBash(Clone)" && _manaManager.CurrentMana >= 4)
+            if (_results[0].gameObject.name == "GaiaBash(Clone)" && _manaManager.CurrentMana >= 4 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 4;
                 CardStackNumbers();
                 UseGaiaBash = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "VoltFling(Clone)" && _manaManager.CurrentMana >= 1)
+            if (_results[0].gameObject.name == "VoltFling(Clone)" && _manaManager.CurrentMana >= 1 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana--;
                 CardStackNumbers();
                 UseVoltFling = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "ReShock(Clone)" && _manaManager.CurrentMana >= 2)
+            if (_results[0].gameObject.name == "ReShock(Clone)" && _manaManager.CurrentMana >= 2 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 2;
                 CardStackNumbers();
                 UseReShock = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "Ampulse(Clone)" && _manaManager.CurrentMana >= 3)
+            if (_results[0].gameObject.name == "Ampulse(Clone)" && _manaManager.CurrentMana >= 3 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 3;
                 CardStackNumbers();
                 UseAmpulse = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "DigiNet(Clone)" && _manaManager.CurrentMana >= 3)
+            if (_results[0].gameObject.name == "DigiNet(Clone)" && _manaManager.CurrentMana >= 3 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 3;
                 CardStackNumbers();
                 UseDigiNet = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "Galvaniz(Clone)" && _manaManager.CurrentMana >= 4)
+            if (_results[0].gameObject.name == "Galvaniz(Clone)" && _manaManager.CurrentMana >= 4 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 4;
                 CardStackNumbers();
                 UseGalvanize = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "ChillShard(Clone)" && _manaManager.CurrentMana >= 1)
+            if (_results[0].gameObject.name == "ChillShard(Clone)" && _manaManager.CurrentMana >= 1 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana--;
                 CardStackNumbers();
                 UseChillShard = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "Refresh(Clone)" && _manaManager.CurrentMana >= 2)
+            if (_results[0].gameObject.name == "Refresh(Clone)" && _manaManager.CurrentMana >= 2 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 2;
                 CardStackNumbers();
                 UseRefresh = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "Frozone(Clone)" && _manaManager.CurrentMana >= 3)
+            if (_results[0].gameObject.name == "Frozone(Clone)" && _manaManager.CurrentMana >= 3 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 3;
                 CardStackNumbers();
                 UseFrozone = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "Tsunami(Clone)" && _manaManager.CurrentMana >= 3)
+            if (_results[0].gameObject.name == "Tsunami(Clone)" && _manaManager.CurrentMana >= 3 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 3;
                 CardStackNumbers();
                 UseTsunami = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
 
-            if (_results[0].gameObject.name == "Glaciate(Clone)" && _manaManager.CurrentMana >= 4)
+            if (_results[0].gameObject.name == "Glaciate(Clone)" && _manaManager.CurrentMana >= 4 && _turnManager.IsTurnDone == true)
             {
                 _manaManager.CurrentMana -= 4;
                 CardStackNumbers();
                 UseGlaciate = true;
+                _aiCastSpells.AiShootSpell = true;
                 MoveToDiscard();
+                _turnManager.IsTurnDone = false;
             }
         }
     }

@@ -14,9 +14,16 @@ public class SaveTheDeck : MonoBehaviour
 
     public Cards CardDatabase;
 
+    [SerializeField] private GameObject _Continue;
+
     private void Awake()
     {
         LoadDeckList();
+
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            _Continue.SetActive(false);
+        }
     }
 
     void Update()
@@ -59,6 +66,11 @@ public class SaveTheDeck : MonoBehaviour
                     CardsInDeck.Add(child.gameObject);
             }
         }
+
+        if (CardsInDeck.Count == 8)
+        {
+            _Continue.SetActive(true);
+        }
     }
 
     public void SaveDeckList()
@@ -88,9 +100,14 @@ public class SaveTheDeck : MonoBehaviour
             if (_cards[i].Equals(string.Empty)) continue;
             int _cardIndex = int.Parse(_cards[i]);
             GameObject _card = CardDatabase.CardList[_cardIndex];
-            Debug.Log(_card.name);
+            //Debug.Log(_card.name);
 
             Instantiate(_card, DeckSlots[i-1].transform);
         }
+    }
+
+    public void NextScene()
+    {
+        SceneManager.LoadScene(1);
     }
 }

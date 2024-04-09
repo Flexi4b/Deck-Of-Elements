@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 913617504793071607}
   - component: {fileID: 2009717286289981436}
   - component: {fileID: 2344206126072073223}
+  - component: {fileID: -6457751932679147802}
   m_Layer: 0
-  m_Name: BurnToss_Spell
-  m_TagString: Untagged
+  m_Name: BurnToss
+  m_TagString: Weak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,3 +149,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardType: 0
   CardAbility: 0
+--- !u!114 &-6457751932679147802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060355003418180215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b234980e35bf2e64591a8346a023c90b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
